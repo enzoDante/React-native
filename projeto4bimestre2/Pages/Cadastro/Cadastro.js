@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Modal from "../../Components/Modals/Modal";
-import { StyledErroText, StyledInputDefault, StyledTextDefault, StyledTitleText, StyledViewForm } from "../../Components/Styles/Styles";
+import { StyledDefaultView, StyledErroText, StyledInputDefault, StyledLinkBtn, StyledTextDefault, StyledTitleText, StyledViewForm } from "../../Components/Styles/Styles";
+import { Button } from 'react-native';
 
-export default () => {
+export default ({navigation}) => {
     const [User, setUser] = useState({'nome': "", "email": "", "senha": "", "csenha": ""});
     const [Validar, setValidar] = useState({'nome': "", 'email': '', 'senha': '', "csenha": ""});
 
@@ -63,28 +65,22 @@ export default () => {
 
     return(
         <StyledViewForm>
-            <Modal visivel={visivela} toggleModal={MudarModal} />
-
+            <Modal visivel={visivela} toggleModal={MudarModal} msg={"Cadastrado com sucesso!"} />
             <StyledTitleText>Cadastro</StyledTitleText>
-
             <StyledTextDefault>Digite seu nome:</StyledTextDefault>
             <StyledInputDefault placeholder="Nome" onChangeText={(valorT) => {setUser({ ...User, nome: valorT }); validar('nome', valorT);}} />
             <StyledErroText>{Validar.nome}</StyledErroText>
-
-            <StyledTitleText>Digite seu email</StyledTitleText>
+            <StyledTextDefault>Digite seu email</StyledTextDefault>
             <StyledInputDefault placeholder="Email" onChangeText={(valorT) => {SetDatas('email', valorT); validar('email', valorT);}} />
             <StyledErroText>{Validar.email}</StyledErroText>
-
-            <StyledTitleText>Digite sua senha:</StyledTitleText>
+            <StyledTextDefault>Digite sua senha:</StyledTextDefault>
             <StyledInputDefault placeholder="Senha" secureTextEntry={true} onChangeText={(valorT) => {SetDatas('senha', valorT); validar('senha', valorT);}} />
             <StyledErroText>{Validar.senha}</StyledErroText>
-
-            <StyledTitleText>Repita a senha:</StyledTitleText>
+            <StyledTextDefault>Repita a senha:</StyledTextDefault>
             <StyledInputDefault placeholder="Confirmar senha" secureTextEntry={true} onChangeText={(valorT) => {SetDatas('csenha', valorT); validar('csenha', valorT);}} />
             <StyledErroText>{Validar.csenha}</StyledErroText>
-
+            <StyledLinkBtn onPress={() => navigation.navigate('Login')}>Já tenho uma conta</StyledLinkBtn>
             <Button title="Cadastrar" onPress={btn} />
-
         </StyledViewForm>
     );
 }

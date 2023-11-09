@@ -4,15 +4,10 @@ import Navg from './Components/Navegacao/Navg';
 
 export default function App() {
   return (
-    <Navg />
+    <Navg style={styles.container}/>
   );
 }
-/*
-<View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-*/
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

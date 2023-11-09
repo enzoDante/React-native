@@ -17,12 +17,12 @@ const StyledText = styled.Text`
     margin: 20px;
 `;
 
-export default ({visivel, toggleModal}) => {
+export default ({visivel, toggleModal, msg}) => {
     //style={{ justifyContent: 'center', alignItems: 'center' }}
     return(
         <Modal isVisible={visivel}>
             <StyledView>
-            <StyledText>Cadastrado com sucesso!</StyledText>
+            <StyledText>{msg}</StyledText>
             <Button title="Fechar" onPress={toggleModal} />
             </StyledView>
         </Modal>
