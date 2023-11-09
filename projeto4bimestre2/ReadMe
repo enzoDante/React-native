@@ -7,3 +7,6 @@ npm i @react-navigation/native
 npx expo install react-native-screens react-native-safe-area-context
 npm install react-native-screens react-native-safe-area-context
 npm install @react-navigation/stack
+
+npm install @supabase/supabase-js
+npx expo install @supabase/supabase-js @react-native-async-storage/async-storage react-native-elements react-native-url-polyfill

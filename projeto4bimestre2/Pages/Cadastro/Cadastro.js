@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "../../Components/Modals/Modal";
 import { StyledDefaultView, StyledErroText, StyledInputDefault, StyledLinkBtn, StyledTextDefault, StyledTitleText, StyledViewForm } from "../../Components/Styles/Styles";
 import { Button } from 'react-native';
+import { cadastraUsuario } from "../../Components/BancoDados/Banco_Dados";
 
 export default ({navigation}) => {
     const [User, setUser] = useState({'nome': "", "email": "", "senha": "", "csenha": ""});
@@ -55,8 +56,10 @@ export default ({navigation}) => {
     const [visivela, toggleModall] = useState(false);
     const btn = e => {
         let validacaoFinal = validar('cadastrar', '')
-        if(validacaoFinal)
+        if(validacaoFinal){
             MudarModal();
+            cadastraUsuario(User.nome, User.email, User.senha);
+        }
         //setValidar({...Validar, ['csenha']: validacaoFinal ? "Deu certooo" : "n foi"});
     }
     const MudarModal = () => {
