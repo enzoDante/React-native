@@ -4,9 +4,13 @@ import { Button, TextInput, View } from "react-native";
 
 export default () => {
     const [dadosDieta, setDadosDieta] = useState();
-    const [cafeDados, setCafed] = useState();
 
-    const [cafeInput, setCafeInput] = useState([]);
+    const [cafeDados, setCafed] = useState([{"nomeComida": "", "calorias": 0}]); //dados de cada input de determinada refeição
+    const [almocoDados, setAlmocod] = useState([{"nomeComida": "", "calorias": 0}]);
+    const [lancheDados, setLanched] = useState([{"nomeComida": "", "calorias": 0}]);
+    const [jantaDados, setJantad] = useState([{"nomeComida": "", "calorias": 0}]);
+
+    const [cafeInput, setCafeInput] = useState([]); // quantidade de inputs para adicionar alimentos em determinada refeição
     const [almocoInput, setAlmocoInput] = useState([]);
     const [lancheInput, setLancheInput] = useState([]);
     const [jantaInput, setJantaInput] = useState([]);
@@ -30,7 +34,6 @@ export default () => {
             <StyledInputDefault placeholder="Descrição" onChangeText={(valorT) => {setUser({ ...User, nome: valorT }); validar('nome', valorT);}} />
 
             <AddItem label="Adicionar café da manhã" onAdd={() => {adicionarInput(cafeInput, setCafeInput, 0)}} />
-            {/* <InputField key={inp.id} placeholder="Novo Input" onRemove={() => removerInput(cafeInput, setCafeInput, inp.id)} /> */}
             {cafeInput.map(inp => (
                 <InputField key={inp.id} placeholder="Nome da comida" onRemove={() => removerInput(cafeInput, setCafeInput, inp.id)} />
             ))}
@@ -60,18 +63,16 @@ export default () => {
 
 const AddItem = ({ label, onAdd }) => (
     <StyledTextWBtn>
-      <StyledTextDefault>{label}</StyledTextDefault>
-      <StyledTBtnInline onPress={onAdd}><StyledPlus2>+</StyledPlus2></StyledTBtnInline>
+        <StyledTextDefault>{label}</StyledTextDefault>
+        <StyledTBtnInline onPress={onAdd}><StyledPlus2>+</StyledPlus2></StyledTBtnInline>
     </StyledTextWBtn>
 );
 
+//keyboardType="numeric" dentro do textInput --- ideia: texto | calorias | btnremover
 const InputField = ({ placeholder, onRemove }) => (
     <View style={{ marginBottom: 10, flexDirection: 'row' }}>
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1, flex: 1, marginRight: 10 }}
-        placeholder={placeholder}
-      />
-      <Button title="Remover" onPress={onRemove} />
+        <TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1, flex: 1, marginRight: 10 }} placeholder={placeholder} />
+        <Button title="Remover" onPress={onRemove} />
     </View>
 );
 //ideia
