@@ -83,6 +83,7 @@ export default ({navigation}) => {
             <StyledInputDefault placeholder="Confirmar senha" secureTextEntry={true} onChangeText={(valorT) => {SetDatas('csenha', valorT); validar('csenha', valorT);}} />
             <StyledErroText>{Validar.csenha}</StyledErroText>
             <StyledLinkBtn onPress={() => navigation.navigate('Login')}>Já tenho uma conta</StyledLinkBtn>
+            {/* <StyledLinkBtn onPress={() => navigation.navigate('Home')}>pagina principal</StyledLinkBtn> */}
             <Button title="Cadastrar" onPress={btn} />
         </StyledViewForm>
     );

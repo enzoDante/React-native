@@ -4,6 +4,22 @@ const StyledTextDefault = styled.Text`
     font-size: 15px;
     margin: 5px;
 `;
+const StyledTextWBtn = styled.View`
+    flex-direction: row;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 25px;
+    /* margin: 5px; */
+    margin-top: 10px;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #BEE7FF;
+    /* align-self: center; */
+
+    
+    color: white;
+`;
 const StyledTitleText = styled.Text`
     font-size: 20px;
     text-align: center;
@@ -24,10 +40,27 @@ const StyledViewForm = styled.View`
     /* flex: 1; */
     width: 100%;
     padding-top: 15px;
-    background-color: #a0b0c0;
+    background-color: #83AEE69C;
     /* align-items: center; */
     justify-content: center;
 `
+const StyledViewDefault = styled.View`
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+`;
+const StyledViewItems = styled.View`
+    width: 100%;
+    justify-content: center;
+    /* margin-top: 30px; */
+    margin-bottom: 10px;
+    background-color: #64CFFF40;
+    padding: 30px;
+    border-radius: 5px;
+`;
+const StyledScroolView = styled.ScrollView`
+    margin-bottom: 40px;
+`;
 
 const StyledInputDefault = styled.TextInput`
     background-color: white;
@@ -47,5 +80,73 @@ const StyledLinkBtn = styled.Text`
     padding: 5px;
     text-decoration: underline;
 `;
+const StyledTBtnInline = styled.TouchableOpacity`
+    display: inline-block;
+    /* padding: 10px; */
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    /* background-color: #5182F5; */
+    background-color: #5CA8F5;
+`;
+const StyledPlus2 = styled.Text`
+    font-size: 50px;
+    margin-top: -15px;
+    color: white;
+    text-align: center;
 
-export {StyledTextDefault, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledInputDefault, StyledLinkBtn};
+`;
+const StyledMinus = styled.Text`
+    font-size: 50px;
+    margin-top: -15px;
+    color: white;
+    text-align: center;
+
+`;
+const StyledTBtn = styled.TouchableOpacity`
+    display: block;
+    /* padding: 10px; */
+    height: 60px;
+    margin-bottom: 15px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #5182F5;
+`;
+const Styledplus = styled.Text`
+    font-size: 50px;
+    margin-top: -10px;
+    color: white;
+    /* display: block; */
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+    /* margin: auto; */
+
+`;
+const StyledExpandView = styled.TouchableOpacity`
+    display: block;
+    /* padding: 10px; */
+    margin: -30px -30px 0px -30px;
+    height: 40px;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #5182F5;
+
+`;
+const StyledTextExpendV = styled.Text`
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: underline;
+`;
+
+export {StyledTextDefault, StyledTextWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledLinkBtn, StyledTBtnInline, StyledPlus2, StyledTBtn, Styledplus, StyledExpandView, StyledTextExpendV};
