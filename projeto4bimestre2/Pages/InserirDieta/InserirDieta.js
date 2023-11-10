@@ -68,7 +68,7 @@ const AddItem = ({ label, onAdd }) => (
     </StyledTextWBtn>
 );
 
-//keyboardType="numeric" dentro do textInput --- ideia: texto | calorias | btnremover
+//keyboardType="numeric" dentro do textInput --- ideia: texto | calorias | btnremover   ***definir um estilo para o campo numérico!! e diminuir o tamanho do campo texto
 const InputField = ({ placeholder, onRemove }) => (
     <View style={{ marginBottom: 10, flexDirection: 'row' }}>
         <TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1, flex: 1, marginRight: 10 }} placeholder={placeholder} />
