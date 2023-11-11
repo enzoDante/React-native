@@ -15,9 +15,20 @@ const StyledTextWBtn = styled.View`
     justify-content: space-between;
     align-items: center;
     background-color: #BEE7FF;
-    /* align-self: center; */
-
-    
+    /* align-self: center; */    
+    color: white;
+`;
+const StyledInputsWBtn = styled.View`
+    flex-direction: row;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 25px;
+    margin-top: 10px;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #BEE7FF;
+    /* align-self: center; */    
     color: white;
 `;
 const StyledTitleText = styled.Text`
@@ -39,6 +50,7 @@ const StyledDefaultView = styled.View`
 const StyledViewForm = styled.View`
     /* flex: 1; */
     width: 100%;
+    height: 100%;
     padding-top: 15px;
     background-color: #83AEE69C;
     /* align-items: center; */
@@ -72,6 +84,28 @@ const StyledInputDefault = styled.TextInput`
     border-radius: 5px;
 
 `
+const StyledInputInline = styled.TextInput`
+    background-color: white;
+    width: 250px;
+    margin: 5px;
+    margin-left: -5px;
+    margin-right: 0px;
+    padding: 7px;
+    font-size: 12px;
+    border-radius: 5px;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+`;
+const StyledInputNumber = styled.TextInput`
+    background-color: white;
+    margin: 5px;
+    width: 50px;
+    padding: 7px;
+    font-size: 12px;
+    border-radius: 5px;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+`;
 
 const StyledLinkBtn = styled.Text`
     font-weight: bold;
@@ -79,6 +113,29 @@ const StyledLinkBtn = styled.Text`
     margin: 10px;
     padding: 5px;
     text-decoration: underline;
+`;
+const StyledFixedBtn = styled.TouchableOpacity`
+    position: absolute;
+    height: 60px;
+    width: 60px;
+
+    bottom: 5px;
+    /* right: 5px; */
+    left: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #5CA8F5;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+`;
+const StyledTextCreate = styled.Text`
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 5px;
+
 `;
 const StyledTBtnInline = styled.TouchableOpacity`
     display: inline-block;
@@ -100,10 +157,11 @@ const StyledPlus2 = styled.Text`
 
 `;
 const StyledMinus = styled.Text`
-    font-size: 50px;
-    margin-top: -15px;
+    font-size: 80px;
+    margin-top: -40px;
     color: white;
     text-align: center;
+    color: #5CA8F5;
 
 `;
 const StyledTBtn = styled.TouchableOpacity`
@@ -149,4 +207,4 @@ const StyledTextExpendV = styled.Text`
     text-decoration: underline;
 `;
 
-export {StyledTextDefault, StyledTextWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledLinkBtn, StyledTBtnInline, StyledPlus2, StyledTBtn, Styledplus, StyledExpandView, StyledTextExpendV};
+export {StyledTextDefault, StyledTextWBtn, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, Styledplus, StyledExpandView, StyledTextExpendV};
