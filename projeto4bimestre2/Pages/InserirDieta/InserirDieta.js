@@ -4,9 +4,12 @@ import { Button, TextInput, View } from "react-native";
 import { DataAtual, Salvar } from "../../Components/SalvarDieta/SalvarDieta";
 import { cadastrarDieta } from "../../Components/BancoDados/Banco_Dados";
 import Modal from "../../Components/Modals/Modal";
+import { useDispatch } from "react-redux";
+import { addDieta } from "../../Components/ReduxConfig/Reducers";
 
 export default () => {
-    const [dadosDieta, setDadosDieta] = useState("");
+    const dispatch = useDispatch();
+    const [dadosDieta, setDadosDieta] = useState('');
 
     const [cafeDados, setCafed] = useState([]); //dados de cada input de determinada refeição    =={"id": 0, "nomeComida": "", "calorias": 0}
     const [almocoDados, setAlmocod] = useState([]);
@@ -21,7 +24,7 @@ export default () => {
     
     const adicionarInput = (inputArray, setInputArray, dadosArray, setDadosArray, idIndex) => {
         setInputArray([...inputArray, { id: ids[idIndex] }]);
-        setDadosArray([...dadosArray, {id: ids[idIndex], "nomeComida": "", "calorias": 0}])
+        setDadosArray([...dadosArray, {id: ids[idIndex], 'refeicao': '', 'calorias': 0}])
         const novoid = [...ids];
         novoid[idIndex] += 1;
         setIds(novoid);
@@ -44,7 +47,7 @@ export default () => {
         if(index != -1){
             // novoDadosant[index] = {"id": key, "nomeComida": "aaaaaa", "calorias": 10};
             if(tipo == 0)
-                novoDadosant[index].nomeComida = value;
+                novoDadosant[index].refeicao = value;
             else
                 novoDadosant[index].calorias = value;
         }
@@ -64,13 +67,21 @@ export default () => {
         toggleModall(!visivela);
     }
     const enviarDados = () => {
-        // DataAtual();
-        // console.log(cafeDados);
-        // Salvar(dadosDieta, cafeDados, almocoDados, lancheDados, jantaDados);
-        const verificar = cadastrarDieta(dadosDieta, cafeDados, almocoDados, lancheDados, jantaDados);
-        if(verificar){
-            MudarModal();
-        }
+        const dataA = DataAtual();
+        const data = {"dataCriacao": dataA, "Dieta": [
+            dadosDieta,
+            {"cafe": cafeDados},
+            {"almoco": almocoDados},
+            {"lanche": lancheDados},
+            {"janta": jantaDados},
+        ]};
+        console.log(data);
+        console.log("-----------=-=-==-=-==-=-------------");
+        dispatch(addDieta(data));
+        MudarModal();
+
+
+
     };
 
     return(
@@ -151,3 +162,4 @@ const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, s
         <StyledTBtnInline style={{backgroundColor: 'white'}} onPress={onRemove} ><StyledMinus>-</StyledMinus></StyledTBtnInline>
     </StyledInputsWBtn>
 );
+

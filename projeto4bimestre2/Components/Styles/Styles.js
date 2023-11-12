@@ -18,6 +18,18 @@ const StyledTextWBtn = styled.View`
     /* align-self: center; */    
     color: white;
 `;
+const StyledTextTittle = styled.Text`
+    font-size: 17px;
+    margin-bottom: 7px;
+    font-weight: bold;
+
+`;
+const StyledTextDefault2 = styled.Text`
+    font-size: 15px;
+    font-weight: 600;
+
+`;
+
 const StyledInputsWBtn = styled.View`
     flex-direction: row;
     padding: 5px;
@@ -70,6 +82,26 @@ const StyledViewItems = styled.View`
     padding: 30px;
     border-radius: 5px;
 `;
+const StyledViewRefeicoes = styled.View`
+    margin-bottom: 5px;
+    padding: 10px;
+    /* box-shadow: 10px 5px 5px black; */
+    border-radius: 5px;
+
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-left-style: solid;
+    border-left-width: 1px;
+
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    border-right-style: solid;
+    border-right-width: 4px;
+    border-color: #0000005E;
+    /* 7A */
+    background-color: white;
+`;
+
 const StyledScroolView = styled.ScrollView`
     margin-bottom: 40px;
 `;
@@ -207,4 +239,4 @@ const StyledTextExpendV = styled.Text`
     text-decoration: underline;
 `;
 
-export {StyledTextDefault, StyledTextWBtn, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, Styledplus, StyledExpandView, StyledTextExpendV};
+export {StyledTextDefault, StyledTextDefault2, StyledTextWBtn, StyledTextTittle, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, Styledplus, StyledExpandView, StyledTextExpendV, StyledViewRefeicoes};

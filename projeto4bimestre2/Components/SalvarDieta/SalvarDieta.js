@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { addDieta } from "../ReduxConfig/Reducers";
+
 // const fs = require('fs');
 const DataAtual = () => {
     const dataAtual = new Date();
@@ -9,10 +12,11 @@ const DataAtual = () => {
     return `${dia}/${mes}/${ano}`;
 };
 const Salvar = (desc, cafe, almoco, lanche, janta) => {
+    const dispatch = useDispatch();
     const hoje = DataAtual();
     // console.log(desc);
     // console.log(cafe);
-    // console.log(almoco);
+    // console.log(almoco);.
     // console.log(lanche);
     // console.log(janta);
 
@@ -23,7 +27,12 @@ const Salvar = (desc, cafe, almoco, lanche, janta) => {
         {"lanche:": lanche},
         {"janta:": janta},
     ]};
-    // console.log(data);
+    const dataString = JSON.stringify(data);
+    dispatch(addDieta(dataString));
+
+    console.log(dataString);
+    console.log("aaa");
+
 };
 
 export {DataAtual, Salvar};
