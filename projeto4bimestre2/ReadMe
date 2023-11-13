@@ -10,5 +10,18 @@ npm install @react-navigation/stack
 npm install redux react-redux
 npm install @reduxjs/toolkit
 
+npm install react-native-svg
+npm install victory-native
+
+//===============n funcionou=============
+npm install react-native-svg-charts
+caso erro:
+npm install react-native-svg@7.0.3
+npm install react-native-svg-charts@5.4.0    versões compatíveis
+npm install react-native-chart-kit ----tenho q fazer assim -> npm install -g expo-cli --> expo install react-native-chart-kit
+npx expo install --fix    ("por causa da versão do react-native-svg")
+To try the examples in Expo, please change main to ./node_modules/expo/AppEntry.js in package.json before starting things with expo run. You'll need to have expo-cli installed via npm install -g expo-cli.
+//=====================================
+
 npm install @supabase/supabase-js
 npx expo install @supabase/supabase-js @react-native-async-storage/async-storage react-native-elements react-native-url-polyfill

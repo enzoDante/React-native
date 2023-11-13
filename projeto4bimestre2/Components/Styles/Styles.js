@@ -18,6 +18,19 @@ const StyledTextWBtn = styled.View`
     /* align-self: center; */    
     color: white;
 `;
+const StyledViewWBtns = styled.View`
+    flex-direction: row;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 25px;
+    /* margin: 5px; */
+    margin-top: 10px;
+    /* justify-content: center; */
+    /* justify-content: space-around; */
+    align-items: center;
+    /* align-self: center; */    
+    color: white;
+`;
 const StyledTextTittle = styled.Text`
     font-size: 17px;
     margin-bottom: 7px;
@@ -73,6 +86,41 @@ const StyledViewDefault = styled.View`
     justify-content: center;
     padding: 10px;
 `;
+const StyledPieView = styled.View`
+flex-direction: row;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 5px;
+    height: 250px;
+    /* justify-content: space-around; */
+`;
+const StyledBarsView = styled.View`
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 260px;
+    /* padding-top: -50px; */
+    /* justify-content: space-around; */
+`;
+const StyledPieDataView = styled.View`
+    /* background-color: red; */
+    padding: 15px;
+    width: 150px;
+    margin-right: -80px;
+    align-self: center;
+
+`;
+const StyledTextWDataView = styled.View`
+    flex-direction: row;
+    align-items: center;
+`;
+const StyledColoredT = styled.Text`
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: black;
+`;
+
 const StyledViewItems = styled.View`
     width: 100%;
     justify-content: center;
@@ -201,6 +249,7 @@ const StyledTBtn = styled.TouchableOpacity`
     /* padding: 10px; */
     height: 60px;
     margin-bottom: 15px;
+    /* margin-left: -100px; */
     width: 60px;
     justify-content: center;
     align-items: center;
@@ -208,6 +257,30 @@ const StyledTBtn = styled.TouchableOpacity`
     border-radius: 10px;
     background-color: #5182F5;
 `;
+const StyledTBtn2 = styled.TouchableOpacity`
+    display: block;
+    /* padding: 10px; */
+    height: 60px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #5182F5;
+`;
+const StyledImageIcon = styled.Image`
+    height: 50px;
+    width: 50px;    
+`;
+const StyledImageView = styled.View`
+    background-color: white;
+    align-items: center;
+    width: 40px;
+    border-radius: 5px;
+`;
+
 const Styledplus = styled.Text`
     font-size: 50px;
     margin-top: -10px;
@@ -238,5 +311,13 @@ const StyledTextExpendV = styled.Text`
     font-size: 15px;
     text-decoration: underline;
 `;
+const StyledTextDP = styled.Text`
+    font-size: 15px;
+    margin: 5px;
+    padding: 5px;
+    /* border-top-style: solid; */
+    border-top-width: 2px;
+    font-weight: 500;
+`;
 
-export {StyledTextDefault, StyledTextDefault2, StyledTextWBtn, StyledTextTittle, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, Styledplus, StyledExpandView, StyledTextExpendV, StyledViewRefeicoes};
+export {StyledTextDefault,StyledImageView, StyledPieView, StyledBarsView, StyledPieDataView, StyledTextWDataView, StyledColoredT, StyledTextDefault2, StyledTextWBtn, StyledImageIcon, StyledViewWBtns, StyledTextTittle, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, StyledTBtn2, Styledplus, StyledExpandView, StyledTextExpendV, StyledViewRefeicoes, StyledTextDP};

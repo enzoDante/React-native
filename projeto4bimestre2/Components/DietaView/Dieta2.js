@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { StyledExpandView, StyledMinus, StyledPlus2, StyledScroolView, StyledTBtnInline, StyledTextDefault, StyledTextDefault2, StyledTextExpendV, StyledTextTittle, StyledTextWBtn, StyledViewDefault, StyledViewItems, StyledViewRefeicoes } from "../Styles/Styles";
+import { StyledExpandView, StyledMinus, StyledPlus2, StyledScroolView, StyledTBtnInline, StyledTextDefault, StyledTextDefault2, StyledTextExpendV, StyledTextTittle, StyledTextWBtn, StyledViewDefault, StyledViewItems, StyledViewRefeicoes, StyledTextDP } from "../Styles/Styles";
 import {Text, View, ScrollView, Image} from 'react-native';
 import { useDispatch, useSelector } from "react-redux";
 import { removeDieta } from "../ReduxConfig/Reducers";
+import { CalcMedia } from "./CaloriasMedia";
 
 // const dados = returnDados();
 
@@ -38,7 +39,6 @@ export default () => {
 							<>
 							{item.Dieta.map((element, subIndex) => (
 								<View key={subIndex}>
-									{/*  */}
 								{typeof element === 'string' ? (
 									// Se for uma string (descrição da dieta), renderize de maneira diferente
 									<StyledTextTittle>Descrição: {element}</StyledTextTittle>
@@ -55,6 +55,8 @@ export default () => {
 												</StyledTextDefault>
 											</View>
 											))}
+											{/* media por refeição e desvio padrão de cada refeição! */}
+											<StyledTextDP>Média de calorias: {CalcMedia(element[Object.keys(element)[0]])}</StyledTextDP>
 										</StyledViewRefeicoes>
 									)
 								)}
@@ -63,7 +65,6 @@ export default () => {
 							<StyledTextWBtn style={{backgroundColor: 'transparent',  }}>
 								<StyledTBtnInline style={{backgroundColor: 'white'}} onPress={() => {removerDieta(item.Dieta[0])}} ><StyledMinus style={{color: 'red'}}>-</StyledMinus></StyledTBtnInline>
 								<StyledTBtnInline style={{backgroundColor: 'white'}} ><Image source={require("./../../assets/editarX32.png")} /></StyledTBtnInline>
-								{/* <StyledPlus2>+</StyledPlus2> */}
 							</StyledTextWBtn>
 							</>
 							)}

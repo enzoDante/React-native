@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import Login from "../../Pages/Cadastro/Login";
 import Index from '../../Pages/Main/main';
 import InserirDieta from "../../Pages/InserirDieta/InserirDieta";
+import RelatorioGeral from "../../Pages/Relatorios/RelatorioGeral";
 
 const Stack = createStackNavigator();
 export default () => {
@@ -14,6 +15,7 @@ export default () => {
             <Stack.Navigator initialRouteName="index">
                 <Stack.Screen name="Home" component={Index} options={{ headerLeft: () => null }} />
                 <Stack.Screen name="Criar Dieta" component={InserirDieta} />
+                <Stack.Screen name="Relatório" component={RelatorioGeral} />
 
                 <Stack.Screen name="Cadastro" component={Cadastro} />
                 {/* somente remove seta de voltar no q tem o comando options */}
