@@ -112,6 +112,9 @@ const StyledBarsGrapView = styled.View`
     margin-top: -45px;
     align-items: center;
 `;
+const StyledDatePickerView = styled.View`
+
+`;
 const StyledPieDataView = styled.View`
     /* background-color: red; */
     padding: 15px;
@@ -330,4 +333,4 @@ const StyledTextDP = styled.Text`
     font-weight: 500;
 `;
 
-export {StyledTextDefault,StyledImageView, StyledPieTittleDatasView, StyledPieView, StyledBarsView, StyledBarsGrapView, StyledPieDataView, StyledTextWDataView, StyledColoredT, StyledTextDefault2, StyledTextWBtn, StyledImageIcon, StyledViewWBtns, StyledTextTittle, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, StyledTBtn2, Styledplus, StyledExpandView, StyledTextExpendV, StyledViewRefeicoes, StyledTextDP};
+export {StyledTextDefault,StyledImageView, StyledPieTittleDatasView, StyledDatePickerView, StyledPieView, StyledBarsView, StyledBarsGrapView, StyledPieDataView, StyledTextWDataView, StyledColoredT, StyledTextDefault2, StyledTextWBtn, StyledImageIcon, StyledViewWBtns, StyledTextTittle, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, StyledTBtn2, Styledplus, StyledExpandView, StyledTextExpendV, StyledViewRefeicoes, StyledTextDP};

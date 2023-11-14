@@ -13,6 +13,8 @@ npm install @reduxjs/toolkit
 npm install react-native-svg
 npm install victory-native
 
+npm install @react-native-picker/picker --save
+
 //===============n funcionou=============
 npm install react-native-svg-charts
 caso erro:

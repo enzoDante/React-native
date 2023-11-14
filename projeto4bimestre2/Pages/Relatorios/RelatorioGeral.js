@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { StyledViewDefault, StyledPieView, StyledBarsView, StyledPieDataView, StyledTextWBtn, StyledTextWDataView, StyledTextDefault, StyledColoredT, StyledTitleText } from "../../Components/Styles/Styles";
+import { StyledViewDefault, StyledPieView, StyledBarsView, StyledPieDataView, StyledTextWBtn, StyledTextWDataView, StyledTextDefault, StyledColoredT, StyledTitleText, StyledScroolView } from "../../Components/Styles/Styles";
 import { useEffect, useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { VictoryPie, VictoryChart, VictoryTooltip, VictoryBar, VictoryStack } from 'victory-native'
@@ -61,6 +61,8 @@ export default () => {
 
 
     const [execucoes, setExecucoes] = useState(0);
+
+    const [dadosOrganizadosData, setDadosOrgData] = useState({});
     
     useEffect(() => {
         // Função para calcular as calorias e quantidade de um tipo específico juntamente com sua média
@@ -126,6 +128,7 @@ export default () => {
             console.log("================================");
             console.log(dadosOrganizados);
             console.log(dadosOrganizados["13/11/2023"]);
+            setDadosOrgData(dadosOrganizados);
             console.log("-------------------------------");
         };
 
@@ -137,17 +140,17 @@ export default () => {
 
 
     return(
-        <StyledViewDefault>
-            {/* mostrar as médias das dietas e suas refeições */}
-            {/* <Text>Café: {Cafe.calorias} calorias - {Cafe.quantidade} refeições  media {Cafe.media} </Text>
-            <Text>Almoço: {Almoco.calorias} calorias - {Almoco.quantidade} refeições  media {Almoco.media}</Text>
-            <Text>Lanche: {Lanche.calorias} calorias - {Lanche.quantidade} refeições  media {Lanche.media}</Text>
-            <Text>Janta: {Janta.calorias} calorias - {Janta.quantidade} refeições  media {Janta.media}</Text> */}
-
-            <GraficoPie cafeDatas={Cafe} almocoDatas={Almoco} lancheDatas={Lanche} jantaDatas={Janta} colors={["tomato", "orange", "gold", "cyan"]} deveCalcularOq={"media"} textlabel={"Porcentagem total das médias"} />
-
-            <GraficoBar cafeDatas={Cafe.media} almocoDatas={Almoco.media} lancheDatas={Lanche.media} jantaDatas={Janta.media} colors={["tomato", "orange", "gold", "cyan" ]} textlabel={"Média total de refeições"} />
-
-        </StyledViewDefault>
+        <StyledScroolView>
+            <StyledViewDefault>
+                {/* mostrar as médias das dietas e suas refeições */}
+                {/* <Text>Café: {Cafe.calorias} calorias - {Cafe.quantidade} refeições  media {Cafe.media} </Text>
+                <Text>Almoço: {Almoco.calorias} calorias - {Almoco.quantidade} refeições  media {Almoco.media}</Text>
+                <Text>Lanche: {Lanche.calorias} calorias - {Lanche.quantidade} refeições  media {Lanche.media}</Text>
+                <Text>Janta: {Janta.calorias} calorias - {Janta.quantidade} refeições  media {Janta.media}</Text> */}
+                <GraficoPie cafeDatas={Cafe} almocoDatas={Almoco} lancheDatas={Lanche} jantaDatas={Janta} colors={["tomato", "orange", "gold", "cyan"]} deveCalcularOq={"media"} textlabel={"Porcentagem total das médias"} />
+                <GraficoBar cafeDatas={Cafe.media} almocoDatas={Almoco.media} lancheDatas={Lanche.media} jantaDatas={Janta.media} colors={["tomato", "orange", "gold", "cyan" ]} textlabel={"Média total de refeições"} dataPesquisa={""} />
+                <GraficoBar dadosOrganizados={dadosOrganizadosData} colors={["tomato", "orange", "gold", "cyan" ]} textlabel={"Média de refeições"} dataPesquisa={"diaEspecifico"} />
+            </StyledViewDefault>
+        </StyledScroolView>
     );
 };
