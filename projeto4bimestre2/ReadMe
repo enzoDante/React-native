@@ -15,6 +15,9 @@ npm install victory-native
 
 npm install @react-native-picker/picker --save
 
+npm install --global eas-cli  --> começando a salvar o projeto online no expo
+
+
 //===============n funcionou=============
 npm install react-native-svg-charts
 caso erro:

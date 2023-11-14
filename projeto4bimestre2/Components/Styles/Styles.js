@@ -113,7 +113,8 @@ const StyledBarsGrapView = styled.View`
     align-items: center;
 `;
 const StyledDatePickerView = styled.View`
-
+    margin-bottom: 10px;
+    align-items: center;
 `;
 const StyledPieDataView = styled.View`
     /* background-color: red; */

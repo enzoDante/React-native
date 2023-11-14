@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c49e8263-f8ab-4eba-b260-48cf9cfc66ae"
+      }
+    },
+    "owner": "enzodante"
   }
 }

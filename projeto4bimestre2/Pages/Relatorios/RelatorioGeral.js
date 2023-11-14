@@ -43,7 +43,7 @@ const dados = [
     {"dataCriacao": "15/11/2023", "Dieta": [
         "descricao aqui teste 2222",
         {"cafe": [{"refeicao": "pão", "calorias": 60}]},
-        {"almoco": [{"refeicao": "macarrão", "calorias": 270}, {"refeicao": "assinha de frango", "calorias": 3680},]},
+        {"almoco": [{"refeicao": "macarrão", "calorias": 270}, {"refeicao": "assinha de frango", "calorias": 80},]},
         {"lanche": [{"refeicao": "torta", "calorias": 30},{"refeicao": "maçã", "calorias": 20}, {"refeicao": "bolo", "calorias": 50},]},
         {"janta": [{"refeicao": "cachorro quente", "calorias": 150}, {"refeicao": "coca cola", "calorias": 300},]},
     ]},
@@ -104,7 +104,7 @@ export default () => {
 
         const organizarDadosPorDia = () => {
             const dadosOrganizados = {};
-            dados.forEach(item => {
+            dietaState.forEach(item => {
                 const dataCriacao = item.dataCriacao;
                 const dieta = item.Dieta;
 
@@ -125,15 +125,13 @@ export default () => {
                     }
                 });
             });
-            console.log("================================");
-            console.log(dadosOrganizados);
-            console.log(dadosOrganizados["13/11/2023"]);
-            setDadosOrgData(dadosOrganizados);
-            console.log("-------------------------------");
+            return (dadosOrganizados);
         };
+        setDadosOrgData(organizarDadosPorDia());
+        // console.log(dadosOrganizadosData);
 
-        organizarDadosPorDia();
-        if(execucoes < 1)
+        // organizarDadosPorDia();
+        if(execucoes < 2)
             setExecucoes((prevExecucoes) => prevExecucoes + 1);
     }, [execucoes]);
 
