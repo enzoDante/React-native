@@ -86,21 +86,31 @@ const StyledViewDefault = styled.View`
     justify-content: center;
     padding: 10px;
 `;
-const StyledPieView = styled.View`
-flex-direction: row;
+const StyledPieTittleDatasView = styled.View`
     background-color: white;
     border-radius: 10px;
+    padding-top: 10px;
     margin-top: 5px;
-    height: 250px;
+    height: 230px;
+`;
+const StyledPieView = styled.View`
+    flex-direction: row;
+    margin-top: -45px;
     /* justify-content: space-around; */
 `;
 const StyledBarsView = styled.View`
     background-color: white;
     border-radius: 10px;
     margin-top: 15px;
-    height: 260px;
+    padding-top: 10px;
+    height: 230px;
     /* padding-top: -50px; */
     /* justify-content: space-around; */
+`;
+const StyledBarsGrapView = styled.View`
+    /* background-color: red; */
+    margin-top: -45px;
+    align-items: center;
 `;
 const StyledPieDataView = styled.View`
     /* background-color: red; */
@@ -320,4 +330,4 @@ const StyledTextDP = styled.Text`
     font-weight: 500;
 `;
 
-export {StyledTextDefault,StyledImageView, StyledPieView, StyledBarsView, StyledPieDataView, StyledTextWDataView, StyledColoredT, StyledTextDefault2, StyledTextWBtn, StyledImageIcon, StyledViewWBtns, StyledTextTittle, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, StyledTBtn2, Styledplus, StyledExpandView, StyledTextExpendV, StyledViewRefeicoes, StyledTextDP};
+export {StyledTextDefault,StyledImageView, StyledPieTittleDatasView, StyledPieView, StyledBarsView, StyledBarsGrapView, StyledPieDataView, StyledTextWDataView, StyledColoredT, StyledTextDefault2, StyledTextWBtn, StyledImageIcon, StyledViewWBtns, StyledTextTittle, StyledInputsWBtn, StyledTitleText, StyledErroText, StyledDefaultView, StyledViewForm, StyledViewDefault, StyledViewItems, StyledScroolView, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledLinkBtn, StyledFixedBtn, StyledTextCreate, StyledTBtnInline, StyledPlus2, StyledMinus, StyledTBtn, StyledTBtn2, Styledplus, StyledExpandView, StyledTextExpendV, StyledViewRefeicoes, StyledTextDP};
