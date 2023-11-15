@@ -57,7 +57,7 @@ export default ({cafeDatas, almocoDatas, lancheDatas, jantaDatas, colors, textla
                     }>
                         <Picker.Item label="Selecione uma data" value="" />
                             {dadosChaves.map((item, index) => (
-                                <Picker.Item label={item} value={item} />)
+                                <Picker.Item key={index} label={item} value={item} />)
                             )}
                     </Picker>
                 </StyledDatePickerView>

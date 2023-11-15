@@ -2,7 +2,6 @@ import { useState } from "react"
 import { StyledErroText, StyledFixedBtn, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledInputsWBtn, StyledMinus, StyledPlus2, StyledScroolView, StyledTBtnInline, StyledTextCreate, StyledTextDefault, StyledTextWBtn, StyledViewForm } from "../../Components/Styles/Styles";
 import { Button, TextInput, View } from "react-native";
 import { DataAtual, Salvar } from "../../Components/SalvarDieta/SalvarDieta";
-import { cadastrarDieta } from "../../Components/BancoDados/Banco_Dados";
 import Modal from "../../Components/Modals/Modal";
 import { useDispatch } from "react-redux";
 import { addDieta } from "../../Components/ReduxConfig/Reducers";

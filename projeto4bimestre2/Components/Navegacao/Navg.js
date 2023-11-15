@@ -17,9 +17,9 @@ export default () => {
                 <Stack.Screen name="Criar Dieta" component={InserirDieta} />
                 <Stack.Screen name="Relatório" component={RelatorioGeral} />
 
-                <Stack.Screen name="Cadastro" component={Cadastro} />
+                {/* <Stack.Screen name="Cadastro" component={Cadastro} /> */}
                 {/* somente remove seta de voltar no q tem o comando options */}
-                <Stack.Screen name="Login" component={Login} options={{ headerLeft: () => null }} /> 
+                {/* <Stack.Screen name="Login" component={Login} options={{ headerLeft: () => null }} />  */}
 
             </Stack.Navigator>
             <StatusBar style="auto"/>

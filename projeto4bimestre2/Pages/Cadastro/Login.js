@@ -2,7 +2,6 @@ import { useState } from "react";
 import Modal from "../../Components/Modals/Modal";
 import { StyledErroText, StyledInputDefault, StyledLinkBtn, StyledTextDefault, StyledTitleText, StyledViewForm } from "../../Components/Styles/Styles";
 import { Button } from 'react-native';
-import { Logiousuario, usuarioLogado } from "../../Components/BancoDados/Banco_Dados";
 
 export default ({navigation}) => {
     const [User, setUser] = useState({'nome': "", "senha": ""});
@@ -35,10 +34,8 @@ export default ({navigation}) => {
     const btn = e => {
         let validacaoFinal = validar('cadastrar', '')
         if(validacaoFinal){
-            Logiousuario(User.nome, User.senha);
             MudarModal();
             navigation.navigate('Cadastro');
-            console.log(usuarioLogado);
             //cadastrar banco de dados!
         }
 
