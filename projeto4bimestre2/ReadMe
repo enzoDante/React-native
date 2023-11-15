@@ -30,3 +30,22 @@ To try the examples in Expo, please change main to ./node_modules/expo/AppEntry.
 
 npm install @supabase/supabase-js
 npx expo install @supabase/supabase-js @react-native-async-storage/async-storage react-native-elements react-native-url-polyfill
+
+
+"preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk" ou "app-bundle"
+      }
+    },
+
+eas.json
+
+
+  "scripts": {
+    "start": "expo start", //react-native start
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  package.json
