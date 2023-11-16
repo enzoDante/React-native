@@ -34,7 +34,7 @@ export default () => {
     
     const adicionarInput = (inputArray, setInputArray, dadosArray, setDadosArray, idIndex) => {
         setInputArray([...inputArray, { id: ids[idIndex] }]);
-        setDadosArray([...dadosArray, {id: ids[idIndex], 'refeicao': 'a', 'calorias': 0}])
+        setDadosArray([...dadosArray, {id: ids[idIndex], 'refeicao': '', 'calorias': 0}])
         const novoid = [...ids];
         novoid[idIndex] += 1;
         setIds(novoid);
@@ -182,7 +182,7 @@ const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, s
     const setDadosRefeicao = (key, tipo, value, inputChange, setInputChange) => {
         const novoDadosant = [...inputChange];
         const index = novoDadosant.findIndex(item => item.id === key);
-        console.log("-=-=-==------------------------------" + setInputChange)
+        
         if(index != -1){
             if(tipo == 0)
                 novoDadosant[index].refeicao = value;
@@ -191,14 +191,18 @@ const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, s
         }
         setInputChange(novoDadosant);
         // setNovosDadosA(novoDadosant);
+        console.log("=======================================================");
+        console.log(novoDadosant[index]);
         console.log(novoDadosant)
         // teste(novoDadosant);
         // console.log(setNovosDadosA);
+        //valorr[0].refeicao != null ? valorr[0].refeicao : ""
+        //valorr[0].calorias != null ? valorr[0].calorias : 0
     };
 
     return(
     <StyledInputsWBtn>
-        <StyledInputInline placeholder={placeholder} value={valorr[0].refeicao != null ? valorr[0].refeicao : ""} onChangeText={(valorT) => {setDadosRefeicao(idU, 0, valorT, inputDadosC, setNovosDadosA)}} />
+        <StyledInputInline placeholder={placeholder} value={valorr[0].refeicao} onChangeText={(valorT) => {setDadosRefeicao(idU, 0, valorT, inputDadosC, setNovosDadosA)}} />
         <StyledInputNumber keyboardType="numeric" value={valorr[0].calorias} onChangeText={(valorT) => {setDadosRefeicao(idU, 1, valorT, inputDadosC, setNovosDadosA)}} placeholder="Cal"/>
         <StyledTBtnInline style={{backgroundColor: 'white'}} onPress={onRemove} ><StyledMinus>-</StyledMinus></StyledTBtnInline>
     </StyledInputsWBtn>
