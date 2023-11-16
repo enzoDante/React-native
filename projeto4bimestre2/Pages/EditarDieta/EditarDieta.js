@@ -4,7 +4,7 @@ import { Button, TextInput, View } from "react-native";
 import { DataAtual, Salvar } from "../../Components/SalvarDieta/SalvarDieta";
 import Modal from "../../Components/Modals/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { addDieta } from "../../Components/ReduxConfig/Reducers";
+import { addDieta, updateDieta } from "../../Components/ReduxConfig/Reducers";
 import { useRoute } from "@react-navigation/native";
 
 export default () => {
@@ -13,13 +13,6 @@ export default () => {
     const [dadosDieta, setDadosDieta] = useState('');
     const route = useRoute();
     const {item} = route.params;
-    console.log("testeeeee=====")
-    console.log(item)
-    console.log(item.Dieta[2].almoco);//.length
-    console.log(dietaState[0].Dieta[1]);
-    console.log(item.Dieta[1].cafe.filter((e) => e.id == 1));
-    // console.log(item.Dieta[4].janta.map((e) => ({id: e.id})))
-
 
     const [cafeDados, setCafed] = useState(item.Dieta[1].cafe); //dados de cada input de determinada refeição    =={"id": 0, "nomeComida": "", "calorias": 0}
     const [almocoDados, setAlmocod] = useState(item.Dieta[2].almoco);
@@ -50,59 +43,30 @@ export default () => {
         
     };
 
-    const setDadosRefeicao = (key, tipo, value, inputChange, setInputChange) => {
-        const novoDadosant = [...inputChange];
-        const index = novoDadosant.findIndex(item => item.id === key);
-        console.log("-=-=-==------------------------------" + setInputChange)
-        if(index != -1){
-            // console.log(value);
-            // novoDadosant[index] = {"id": key, "nomeComida": "aaaaaa", "calorias": 10};
-            if(tipo == 0)
-                novoDadosant[index].refeicao = value;
-            else
-                novoDadosant[index].calorias = value;
-        }
-        setInputChange(novoDadosant);
-        // if(setInputChange == "cafe"){
-        //     console.log(value);
-        //     console.log(novoDadosant);
-        //     setCafed(novoDadosant); //prevState => [...prevState, ...novoDadosant]
-        // }
-        // else if(setInputChange == "almoco")
-        //     setAlmocod(novoDadosant);
-        // else if(setInputChange == "lanche")
-        //     setLanched(novoDadosant);
-        // else if(setInputChange == "janta")
-        //     setJantad(novoDadosant);
-        // console.log(inputChange);
-    };
-
     const [visivela, toggleModall] = useState(false);
     const MudarModal = () => {
         toggleModall(!visivela);
     }
     const enviarDados = () => {
-        // const dataA = DataAtual();
-        // const data = {"dataCriacao": dataA, "Dieta": [
-        //     dadosDieta,
-        //     {"cafe": cafeDados},
-        //     {"almoco": almocoDados},
-        //     {"lanche": lancheDados},
-        //     {"janta": jantaDados},
-        // ]};
-        // console.log(data);
-        // console.log("-----------=-=-==-=-==-=-------------");
-        // dispatch(addDieta(data));
-        // MudarModal();
+        
+        const data = {"dataCriacao": item.dataCriacao, "Dieta": [
+            item.Dieta[0],
+            {"cafe": cafeDados},
+            {"almoco": almocoDados},
+            {"lanche": lancheDados},
+            {"janta": jantaDados},
+        ]};
+        
+        dispatch(updateDieta({ desc: item.Dieta[0], newData: data }));
+        MudarModal();
     };
 
     return(
         <StyledViewForm>
-            <Modal visivel={visivela} toggleModal={MudarModal} msg={"Dieta cadastrada!"} />
+            <Modal visivel={visivela} toggleModal={MudarModal} msg={"Dieta Atualizada!"} />
             <StyledScroolView>
-                {/* <StyledTextDefault>Descrição:</StyledTextDefault> */}
+                
                 <StyledTitleText>{item.Dieta[0]}</StyledTitleText>
-                {/* <StyledInputDefault placeholder="Descrição" onChangeText={(valorT) => {setDadosDieta(valorT)}} /> */}
 
                 <AddItem label="Adicionar café da manhã" onAdd={() => {adicionarInput(cafeInput, setCafeInput, cafeDados, setCafed, 0)}} />
                 {cafeInput.map(inp => (
@@ -110,11 +74,9 @@ export default () => {
                     placeholder="Nome da comida" 
                     idU={inp.id} 
                     onRemove={() => removerInput(cafeInput, setCafeInput, cafeDados, setCafed, inp.id)} 
-                    setDadosArrayU={setDadosRefeicao}
                     inputDadosC={cafeDados}
                     setNovosDadosA={setCafed} //setCafed
                     valorr={cafeDados.filter((e) => e.id == inp.id)}
-                    teste={setCafed}
 
                     />
                 ))}
@@ -125,11 +87,9 @@ export default () => {
                     placeholder="Nome da comida" 
                     idU={inp.id} 
                     onRemove={() => removerInput(almocoInput, setAlmocoInput, almocoDados, setAlmocod, inp.id)} 
-                    setDadosArrayU={setDadosRefeicao}
                     inputDadosC={almocoDados}
                     setNovosDadosA={setAlmocod} //setAlmocod
                     valorr={almocoDados.filter((e) => e.id == inp.id)}
-                    teste={setAlmocod}
                     />
                 ))}
                 
@@ -139,11 +99,9 @@ export default () => {
                     placeholder="Nome da comida" 
                     idU={inp.id} 
                     onRemove={() => removerInput(lancheInput, setLancheInput, lancheDados, setLanched, inp.id)} 
-                    setDadosArrayU={setDadosRefeicao}
                     inputDadosC={lancheDados}
                     setNovosDadosA={setLanched} //setLanched
                     valorr={lancheDados.filter((e) => e.id == inp.id)}
-                    teste={setLanched}
                     />
                 ))}
                 <AddItem label="Adicionar janta" onAdd={() => {adicionarInput(jantaInput, setJantaInput, jantaDados, setJantad, 3)}} />
@@ -152,11 +110,9 @@ export default () => {
                     placeholder={"Nome da comida"} 
                     idU={inp.id} 
                     onRemove={() => {removerInput(jantaInput, setJantaInput, jantaDados, setJantad, inp.id)}} 
-                    setDadosArrayU={setDadosRefeicao}
                     inputDadosC={jantaDados}
                     setNovosDadosA={setJantad} //setJantad
                     valorr={jantaDados.filter((e) => e.id == inp.id)}
-                    teste={setJantad}
                     />
                 ))}
                 
@@ -176,8 +132,8 @@ const AddItem = ({ label, onAdd }) => (
         <StyledTBtnInline onPress={onAdd}><StyledPlus2>+</StyledPlus2></StyledTBtnInline>
     </StyledTextWBtn>
 );
-//setDadosArrayU
-const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, setNovosDadosA, valorr,teste }) => {
+
+const InputField = ({ placeholder, idU, onRemove, inputDadosC, setNovosDadosA, valorr }) => {
     
     const setDadosRefeicao = (key, tipo, value, inputChange, setInputChange) => {
         const novoDadosant = [...inputChange];
@@ -190,14 +146,6 @@ const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, s
                 novoDadosant[index] = {...novoDadosant[index], calorias: value}; //novoDadosant[index].calorias = value
         }
         setInputChange(novoDadosant);
-        // setNovosDadosA(novoDadosant);
-        console.log("=======================================================");
-        console.log(novoDadosant[index]);
-        console.log(novoDadosant)
-        // teste(novoDadosant);
-        // console.log(setNovosDadosA);
-        //valorr[0].refeicao != null ? valorr[0].refeicao : ""
-        //valorr[0].calorias != null ? valorr[0].calorias : 0
     };
 
     return(
