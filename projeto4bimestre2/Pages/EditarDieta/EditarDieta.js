@@ -30,11 +30,11 @@ export default () => {
     const [almocoInput, setAlmocoInput] = useState(item.Dieta[2].almoco.map((e) => ({id: e.id})));
     const [lancheInput, setLancheInput] = useState(item.Dieta[3].lanche.map((e) => ({id: e.id})));
     const [jantaInput, setJantaInput] = useState(item.Dieta[4].janta.map((e) => ({id: e.id})));
-    const [ids, setIds] = useState([0, 0, 0, 0]);
+    const [ids, setIds] = useState([item.Dieta[1].cafe.length, item.Dieta[2].almoco.length, item.Dieta[3].lanche.length, item.Dieta[4].janta.length]);
     
     const adicionarInput = (inputArray, setInputArray, dadosArray, setDadosArray, idIndex) => {
         setInputArray([...inputArray, { id: ids[idIndex] }]);
-        setDadosArray([...dadosArray, {id: ids[idIndex], 'refeicao': '', 'calorias': 0}])
+        setDadosArray([...dadosArray, {id: ids[idIndex], 'refeicao': 'a', 'calorias': 0}])
         const novoid = [...ids];
         novoid[idIndex] += 1;
         setIds(novoid);
