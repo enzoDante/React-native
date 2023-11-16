@@ -119,7 +119,7 @@ export default () => {
             </StyledScroolView>
 
                 <StyledFixedBtn onPress={enviarDados} >
-                    <StyledTextCreate>Criar</StyledTextCreate>
+                    <StyledTextCreate>Salvar</StyledTextCreate>
                 </StyledFixedBtn>
         </StyledViewForm>
     );

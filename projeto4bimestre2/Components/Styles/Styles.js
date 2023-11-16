@@ -211,7 +211,7 @@ const StyledLinkBtn = styled.Text`
 const StyledFixedBtn = styled.TouchableOpacity`
     position: absolute;
     height: 60px;
-    width: 60px;
+    width: 80px;
 
     bottom: 5px;
     /* right: 5px; */
