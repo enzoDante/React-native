@@ -7,7 +7,7 @@ import { CalcMedia } from "./CaloriasMedia";
 
 // const dados = returnDados();
 
-export default () => {
+export default ({navigation}) => {
 	const dispatch = useDispatch();
 	const dietaState = useSelector(state => state.dieta);
 	useState(() => {
@@ -64,13 +64,14 @@ export default () => {
 							))}
 							<StyledTextWBtn style={{backgroundColor: 'transparent',  }}>
 								<StyledTBtnInline style={{backgroundColor: 'white'}} onPress={() => {removerDieta(item.Dieta[0])}} ><StyledMinus style={{color: 'red'}}>-</StyledMinus></StyledTBtnInline>
-								<StyledTBtnInline style={{backgroundColor: 'white'}} ><Image source={require("./../../assets/editarX32.png")} /></StyledTBtnInline>
+
+								<StyledTBtnInline onPress={() => navigation.navigate('Editar Dieta', { item })} style={{backgroundColor: 'white'}} ><Image source={require("./../../assets/editarX32.png")} /></StyledTBtnInline>
 							</StyledTextWBtn>
 							</>
 							)}
                     </StyledViewItems>
                     
-					))}
+				))}
             </StyledViewDefault>
         </StyledScroolView>
     )

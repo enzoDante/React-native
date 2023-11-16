@@ -51,7 +51,7 @@ export default ({navigation}) => {
                 </StyledTBtn2>
             </StyledViewWBtns>
 
-            <Dieta2 />
+            <Dieta2 navigation={navigation} />
             
         </StyledViewDefault>
     );

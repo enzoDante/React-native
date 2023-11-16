@@ -1,24 +1,35 @@
-import { useState } from "react"
-import { StyledErroText, StyledFixedBtn, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledInputsWBtn, StyledMinus, StyledPlus2, StyledScroolView, StyledTBtnInline, StyledTextCreate, StyledTextDefault, StyledTextWBtn, StyledViewForm } from "../../Components/Styles/Styles";
+import { useEffect, useState } from "react"
+import { StyledErroText, StyledFixedBtn, StyledInputDefault, StyledInputInline, StyledInputNumber, StyledInputsWBtn, StyledMinus, StyledPlus2, StyledScroolView, StyledTBtnInline, StyledTextCreate, StyledTextDefault, StyledTextWBtn, StyledTitleText, StyledViewForm } from "../../Components/Styles/Styles";
 import { Button, TextInput, View } from "react-native";
 import { DataAtual, Salvar } from "../../Components/SalvarDieta/SalvarDieta";
 import Modal from "../../Components/Modals/Modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addDieta } from "../../Components/ReduxConfig/Reducers";
+import { useRoute } from "@react-navigation/native";
 
 export default () => {
     const dispatch = useDispatch();
+    const dietaState = useSelector(state => state.dieta);
     const [dadosDieta, setDadosDieta] = useState('');
+    const route = useRoute();
+    const {item} = route.params;
+    console.log("testeeeee=====")
+    console.log(item)
+    console.log(item.Dieta[2].almoco);//.length
+    console.log(dietaState[0].Dieta[1]);
+    console.log(item.Dieta[1].cafe.filter((e) => e.id == 1));
+    // console.log(item.Dieta[4].janta.map((e) => ({id: e.id})))
 
-    const [cafeDados, setCafed] = useState([]); //dados de cada input de determinada refeição    =={"id": 0, "nomeComida": "", "calorias": 0}
-    const [almocoDados, setAlmocod] = useState([]);
-    const [lancheDados, setLanched] = useState([]);
-    const [jantaDados, setJantad] = useState([]);
 
-    const [cafeInput, setCafeInput] = useState([]); // quantidade de inputs para adicionar alimentos em determinada refeição
-    const [almocoInput, setAlmocoInput] = useState([]);
-    const [lancheInput, setLancheInput] = useState([]);
-    const [jantaInput, setJantaInput] = useState([]);
+    const [cafeDados, setCafed] = useState(item.Dieta[1].cafe); //dados de cada input de determinada refeição    =={"id": 0, "nomeComida": "", "calorias": 0}
+    const [almocoDados, setAlmocod] = useState(item.Dieta[2].almoco);
+    const [lancheDados, setLanched] = useState(item.Dieta[3].lanche);
+    const [jantaDados, setJantad] = useState(item.Dieta[4].janta);
+
+    const [cafeInput, setCafeInput] = useState(item.Dieta[1].cafe.map((e) => ({id: e.id}))); // quantidade de inputs para adicionar alimentos em determinada refeição
+    const [almocoInput, setAlmocoInput] = useState(item.Dieta[2].almoco.map((e) => ({id: e.id})));
+    const [lancheInput, setLancheInput] = useState(item.Dieta[3].lanche.map((e) => ({id: e.id})));
+    const [jantaInput, setJantaInput] = useState(item.Dieta[4].janta.map((e) => ({id: e.id})));
     const [ids, setIds] = useState([0, 0, 0, 0]);
     
     const adicionarInput = (inputArray, setInputArray, dadosArray, setDadosArray, idIndex) => {
@@ -42,22 +53,27 @@ export default () => {
     const setDadosRefeicao = (key, tipo, value, inputChange, setInputChange) => {
         const novoDadosant = [...inputChange];
         const index = novoDadosant.findIndex(item => item.id === key);
-        // console.log(index);
+        console.log("-=-=-==------------------------------" + setInputChange)
         if(index != -1){
+            // console.log(value);
             // novoDadosant[index] = {"id": key, "nomeComida": "aaaaaa", "calorias": 10};
             if(tipo == 0)
                 novoDadosant[index].refeicao = value;
             else
                 novoDadosant[index].calorias = value;
         }
-        if(setInputChange == "cafe")
-            setCafed(novoDadosant); //prevState => [...prevState, ...novoDadosant]
-        else if(setInputChange == "almoco")
-            setAlmocod(novoDadosant);
-        else if(setInputChange == "lanche")
-            setLanched(novoDadosant);
-        else if(setInputChange == "janta")
-            setJantad(novoDadosant);
+        setInputChange(novoDadosant);
+        // if(setInputChange == "cafe"){
+        //     console.log(value);
+        //     console.log(novoDadosant);
+        //     setCafed(novoDadosant); //prevState => [...prevState, ...novoDadosant]
+        // }
+        // else if(setInputChange == "almoco")
+        //     setAlmocod(novoDadosant);
+        // else if(setInputChange == "lanche")
+        //     setLanched(novoDadosant);
+        // else if(setInputChange == "janta")
+        //     setJantad(novoDadosant);
         // console.log(inputChange);
     };
 
@@ -66,30 +82,27 @@ export default () => {
         toggleModall(!visivela);
     }
     const enviarDados = () => {
-        const dataA = DataAtual();
-        const data = {"dataCriacao": dataA, "Dieta": [
-            dadosDieta,
-            {"cafe": cafeDados},
-            {"almoco": almocoDados},
-            {"lanche": lancheDados},
-            {"janta": jantaDados},
-        ]};
-        console.log("===cadastrando dieta=========")
-        console.log(data);
-        console.log("-----------=-=-==-=-==-=-------------");
-        dispatch(addDieta(data));
-        MudarModal();
-
-
-
+        // const dataA = DataAtual();
+        // const data = {"dataCriacao": dataA, "Dieta": [
+        //     dadosDieta,
+        //     {"cafe": cafeDados},
+        //     {"almoco": almocoDados},
+        //     {"lanche": lancheDados},
+        //     {"janta": jantaDados},
+        // ]};
+        // console.log(data);
+        // console.log("-----------=-=-==-=-==-=-------------");
+        // dispatch(addDieta(data));
+        // MudarModal();
     };
 
     return(
         <StyledViewForm>
             <Modal visivel={visivela} toggleModal={MudarModal} msg={"Dieta cadastrada!"} />
             <StyledScroolView>
-                <StyledTextDefault>Digite a descrição da dieta:</StyledTextDefault>
-                <StyledInputDefault placeholder="Descrição" onChangeText={(valorT) => {setDadosDieta(valorT)}} />
+                {/* <StyledTextDefault>Descrição:</StyledTextDefault> */}
+                <StyledTitleText>{item.Dieta[0]}</StyledTitleText>
+                {/* <StyledInputDefault placeholder="Descrição" onChangeText={(valorT) => {setDadosDieta(valorT)}} /> */}
 
                 <AddItem label="Adicionar café da manhã" onAdd={() => {adicionarInput(cafeInput, setCafeInput, cafeDados, setCafed, 0)}} />
                 {cafeInput.map(inp => (
@@ -99,7 +112,10 @@ export default () => {
                     onRemove={() => removerInput(cafeInput, setCafeInput, cafeDados, setCafed, inp.id)} 
                     setDadosArrayU={setDadosRefeicao}
                     inputDadosC={cafeDados}
-                    setinputDadosC={"cafe"} //setCafed
+                    setNovosDadosA={setCafed} //setCafed
+                    valorr={cafeDados.filter((e) => e.id == inp.id)}
+                    teste={setCafed}
+
                     />
                 ))}
                 
@@ -111,7 +127,9 @@ export default () => {
                     onRemove={() => removerInput(almocoInput, setAlmocoInput, almocoDados, setAlmocod, inp.id)} 
                     setDadosArrayU={setDadosRefeicao}
                     inputDadosC={almocoDados}
-                    setinputDadosC={"almoco"} //setAlmocod
+                    setNovosDadosA={setAlmocod} //setAlmocod
+                    valorr={almocoDados.filter((e) => e.id == inp.id)}
+                    teste={setAlmocod}
                     />
                 ))}
                 
@@ -123,7 +141,9 @@ export default () => {
                     onRemove={() => removerInput(lancheInput, setLancheInput, lancheDados, setLanched, inp.id)} 
                     setDadosArrayU={setDadosRefeicao}
                     inputDadosC={lancheDados}
-                    setinputDadosC={"lanche"} //setLanched
+                    setNovosDadosA={setLanched} //setLanched
+                    valorr={lancheDados.filter((e) => e.id == inp.id)}
+                    teste={setLanched}
                     />
                 ))}
                 <AddItem label="Adicionar janta" onAdd={() => {adicionarInput(jantaInput, setJantaInput, jantaDados, setJantad, 3)}} />
@@ -134,7 +154,9 @@ export default () => {
                     onRemove={() => {removerInput(jantaInput, setJantaInput, jantaDados, setJantad, inp.id)}} 
                     setDadosArrayU={setDadosRefeicao}
                     inputDadosC={jantaDados}
-                    setinputDadosC={"janta"} //setJantad
+                    setNovosDadosA={setJantad} //setJantad
+                    valorr={jantaDados.filter((e) => e.id == inp.id)}
+                    teste={setJantad}
                     />
                 ))}
                 
@@ -155,11 +177,30 @@ const AddItem = ({ label, onAdd }) => (
     </StyledTextWBtn>
 );
 //setDadosArrayU
-const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, setInputDadosC }) => (
+const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, setNovosDadosA, valorr,teste }) => {
+    
+    const setDadosRefeicao = (key, tipo, value, inputChange, setInputChange) => {
+        const novoDadosant = [...inputChange];
+        const index = novoDadosant.findIndex(item => item.id === key);
+        console.log("-=-=-==------------------------------" + setInputChange)
+        if(index != -1){
+            if(tipo == 0)
+                novoDadosant[index].refeicao = value;
+            else
+                novoDadosant[index].calorias = value;
+        }
+        setInputChange(novoDadosant);
+        // setNovosDadosA(novoDadosant);
+        console.log(novoDadosant)
+        // teste(novoDadosant);
+        // console.log(setNovosDadosA);
+    };
+
+    return(
     <StyledInputsWBtn>
-        <StyledInputInline placeholder={placeholder} onChangeText={(valorT) => {setDadosArrayU(idU, 0, valorT, inputDadosC, setInputDadosC)}} />
-        <StyledInputNumber keyboardType="numeric" onChangeText={(valorT) => {setDadosArrayU(idU, 1, valorT, inputDadosC, setInputDadosC)}} placeholder="Cal"/>
+        <StyledInputInline placeholder={placeholder} value={valorr[0].refeicao != null ? valorr[0].refeicao : ""} onChangeText={(valorT) => {setDadosRefeicao(idU, 0, valorT, inputDadosC, setNovosDadosA)}} />
+        <StyledInputNumber keyboardType="numeric" value={valorr[0].calorias} onChangeText={(valorT) => {setDadosRefeicao(idU, 1, valorT, inputDadosC, setNovosDadosA)}} placeholder="Cal"/>
         <StyledTBtnInline style={{backgroundColor: 'white'}} onPress={onRemove} ><StyledMinus>-</StyledMinus></StyledTBtnInline>
     </StyledInputsWBtn>
-);
+)};
 
