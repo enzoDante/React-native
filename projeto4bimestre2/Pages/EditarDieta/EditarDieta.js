@@ -34,7 +34,7 @@ export default () => {
     
     const adicionarInput = (inputArray, setInputArray, dadosArray, setDadosArray, idIndex) => {
         setInputArray([...inputArray, { id: ids[idIndex] }]);
-        setDadosArray([...dadosArray, {id: ids[idIndex], 'refeicao': '', 'calorias': 0}])
+        setDadosArray([...dadosArray, {id: ids[idIndex], 'refeicao': '', 'calorias': '0'}])
         const novoid = [...ids];
         novoid[idIndex] += 1;
         setIds(novoid);
@@ -185,9 +185,9 @@ const InputField = ({ placeholder, idU, onRemove, setDadosArrayU, inputDadosC, s
         
         if(index != -1){
             if(tipo == 0)
-                novoDadosant[index].refeicao = value;
+                novoDadosant[index] = {...novoDadosant[index], refeicao: `${value}`}; //novoDadosant[index].refeicao = value;
             else
-                novoDadosant[index].calorias = value;
+                novoDadosant[index] = {...novoDadosant[index], calorias: value}; //novoDadosant[index].calorias = value
         }
         setInputChange(novoDadosant);
         // setNovosDadosA(novoDadosant);
